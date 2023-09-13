@@ -43,7 +43,7 @@ Fork of https://github.com/hiyouga/LLaMA-Efficient-Tuning. Filtered only for SFT
          source ~/.bashrc
 
 4. Install this repo  
-         git clone https://github.com/hiyouga/LLaMA-Efficient-Tuning-SFT  
+         git clone https://github.com/prakhag2/LLaMA-Efficient-Tuning-SFT
          cd LLaMA-Efficient-Tuning  
          sudo pip3.10 install -r requirements.txt  
          pip3.10 install deepspeed bitsandbytes  
@@ -95,7 +95,7 @@ Fork of https://github.com/hiyouga/LLaMA-Efficient-Tuning. Filtered only for SFT
          Where to offload parameters?       none                                                                                                             
          How many gradient accumulation steps you're passing in your script? [1]: 4                                       
          Do you want to use gradient clipping? [yes/NO]: no                                                               
-         Do you want to save 16-bit model weights when using ZeRO Stage-3? [yes/NO]: no                                   
+         Do you want to save 16-bit model weights when using ZeRO Stage-3? [yes/NO]: yes                                   
          Do you want to enable `deepspeed.zero.Init` when using ZeRO Stage-3 for constructing massive models? [yes/NO]: yes  
          Which Type of launcher do you want to use? standard                                                                                                         
          How many GPU(s) should be used for distributed training? [1]:32                                                  
