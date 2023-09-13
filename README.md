@@ -33,18 +33,22 @@ Fork of https://github.com/hiyouga/LLaMA-Efficient-Tuning. Filtered only for SFT
          sudo add-apt-repository contrib  
          sudo apt-get update  
          sudo apt-get -y install cuda  
-      
+
+         Edit ~/.bashrc with the following:
+   
          export CUDA_HOME=/usr/local/cuda-12.2  
          export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-12.2/lib64:/usr/local/cuda-12.2/extras/CUPTI/lib64  
-         export PATH=$PATH:$CUDA_HOME/bin  
+         export PATH=$PATH:$CUDA_HOME/bin
 
-3. Install this repo  
+         source ~/.bashrc
+
+4. Install this repo  
          git clone https://github.com/hiyouga/LLaMA-Efficient-Tuning-SFT  
          cd LLaMA-Efficient-Tuning  
          sudo pip3.10 install -r requirements.txt  
          pip3.10 install deepspeed bitsandbytes  
 
-4. Ensure that *all the VMs* created can ssh into each other. Rough steps:  
+5. Ensure that *all the VMs* created can ssh into each other. Rough steps:  
    
          On VM1, execute:  
          ssh-keygen -t rsa  
@@ -70,7 +74,7 @@ Fork of https://github.com/hiyouga/LLaMA-Efficient-Tuning. Filtered only for SFT
          service sshd restart  
          sudo reboot  
 
-5. On every VM, run  
+6. On every VM, run  
          accelerate config  
       
          Pick the following options:  
@@ -97,8 +101,8 @@ Fork of https://github.com/hiyouga/LLaMA-Efficient-Tuning. Filtered only for SFT
          How many GPU(s) should be used for distributed training? [1]:32                                                  
          Do you wish to use FP16 or BF16 (mixed precision)? BF16                                                             
 
-6. On every VM, run  
+7. On every VM, run  
          huggingface-cli login -> meta-llama/Llama-2-70b-chat-hf is a gated model  
 
-7. On every VM, run  
+8. On every VM, run  
          accelerate launch src/train_bash.py --stage sft --model_name_or_path meta-llama/Llama-2-70b-chat-hf --do_train --dataset alpaca_gpt4_en --template llama2 --finetuning_type lora --   lora_target q_proj,v_proj --output_dir path_to_sft_checkpoint --overwrite_cache --per_device_train_batch_size 4 --gradient_accumulation_steps 4 --lr_scheduler_type cosine --logging_steps 10 --save_steps 1000 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16 --overwrite_output_dir  
