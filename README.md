@@ -7,36 +7,36 @@ Fork of https://github.com/hiyouga/LLaMA-Efficient-Tuning. Filtered only for SFT
    
 2. Install Python, CUDA driver. Rough steps:
 
-   Python:
-     
-   sudo apt update && sudo apt upgrade -y   
-   sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev wget git liblzma-dev  
-   wget https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tgz  
-   tar -xf Python-3.10.*.tgz  
-   cd Python-3.10.*/  
-   ./configure --prefix=/usr/local --enable-optimizations --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"  
-   make -j $(nproc)  
-   sudo make altinstall  
-
-   CUDA:
-    
-   sudo apt-get update -y  
-   sudo apt-get upgrade  
-   sudo apt-get dist-upgrade   
-   sudo reboot  
-
-   curl https://raw.githubusercontent.com/GoogleCloudPlatform/compute-gpu-installation/main/linux/install_gpu_driver.py --output install_gpu_driver.py  
-   sudo python3.10 install_gpu_driver.py  
-
-   wget https://developer.download.nvidia.com/compute/cuda/repos/debian11/x86_64/cuda-keyring_1.0-1_all.deb  
-   sudo dpkg -i cuda-keyring_1.0-1_all.deb  
-   sudo add-apt-repository contrib  
-   sudo apt-get update  
-   sudo apt-get -y install cuda  
-
-   export CUDA_HOME=/usr/local/cuda-12.2  
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-12.2/lib64:/usr/local/cuda-12.2/extras/CUPTI/lib64  
-   export PATH=$PATH:$CUDA_HOME/bin  
+         Python:
+           
+         sudo apt update && sudo apt upgrade -y   
+         sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev wget git liblzma-dev  
+         wget https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tgz  
+         tar -xf Python-3.10.*.tgz  
+         cd Python-3.10.*/  
+         ./configure --prefix=/usr/local --enable-optimizations --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"  
+         make -j $(nproc)  
+         sudo make altinstall  
+      
+         CUDA:
+          
+         sudo apt-get update -y  
+         sudo apt-get upgrade  
+         sudo apt-get dist-upgrade   
+         sudo reboot  
+      
+         curl https://raw.githubusercontent.com/GoogleCloudPlatform/compute-gpu-installation/main/linux/install_gpu_driver.py --output install_gpu_driver.py  
+         sudo python3.10 install_gpu_driver.py  
+      
+         wget https://developer.download.nvidia.com/compute/cuda/repos/debian11/x86_64/cuda-keyring_1.0-1_all.deb  
+         sudo dpkg -i cuda-keyring_1.0-1_all.deb  
+         sudo add-apt-repository contrib  
+         sudo apt-get update  
+         sudo apt-get -y install cuda  
+      
+         export CUDA_HOME=/usr/local/cuda-12.2  
+         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-12.2/lib64:/usr/local/cuda-12.2/extras/CUPTI/lib64  
+         export PATH=$PATH:$CUDA_HOME/bin  
 
 3. Install this repo  
    git clone https://github.com/hiyouga/LLaMA-Efficient-Tuning-SFT  
