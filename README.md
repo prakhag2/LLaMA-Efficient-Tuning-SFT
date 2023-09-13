@@ -7,7 +7,7 @@ Fork of https://github.com/hiyouga/LLaMA-Efficient-Tuning. Filtered only for SFT
    
 2. Install Python, CUDA driver. Rough steps:
 
-         Python:
+   Python:
            
          sudo apt update && sudo apt upgrade -y   
          sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev wget git liblzma-dev  
