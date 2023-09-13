@@ -43,8 +43,8 @@ Fork of https://github.com/hiyouga/LLaMA-Efficient-Tuning. Filtered only for SFT
          source ~/.bashrc
 
 4. Install this repo  
-         git clone https://github.com/prakhag2/LLaMA-Efficient-Tuning-SFT
-         cd LLaMA-Efficient-Tuning  
+         git clone https://github.com/prakhag2/LLaMA-Efficient-Tuning-SFT  
+         cd LLaMA-Efficient-Tuning-SFT    
          sudo pip3.10 install -r requirements.txt  
          pip3.10 install deepspeed bitsandbytes  
 
