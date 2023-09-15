@@ -107,5 +107,5 @@ Fork of https://github.com/hiyouga/LLaMA-Efficient-Tuning. Filtered only for SFT
 8. On every VM, run  
          accelerate launch src/train_bash.py --stage sft --model_name_or_path meta-llama/Llama-2-70b-chat-hf --do_train --dataset alpaca_gpt4_en --template llama2 --finetuning_type lora --lora_target q_proj,v_proj --output_dir ./out --per_device_train_batch_size 4 --gradient_accumulation_steps 4 --lr_scheduler_type cosine --logging_steps 10 --save_steps 10 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16 --cache_dir ./llama-70b
 
-   To resume the training in case of disruption
+   To resume the training in case of disruption  
    accelerate launch src/train_bash.py --stage sft     --model_name_or_path meta-llama/Llama-2-70b-chat-hf --do_train     --dataset alpaca_gpt4_en     --template default     --finetuning_type lora     --lora_target q_proj,v_proj     --output_dir ./out/ --per_device_train_batch_size 4     --gradient_accumulation_steps 4     --lr_scheduler_type cosine     --logging_steps 10     --save_steps 10 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --cache_dir ./llama-70b --resume_lora_training true --bf16 --checkpoint_dir ./out/checkpoint-10/ (change to the appropriate checkpoint-<step>)  
